@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hikari-batch
+    jdbcUrl: jdbc:postgresql://localhost:5432/hikari-batch
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: postgres
+  jpa:
+    generate-ddl: true
+    database-platform : org.hibernate.dialect.PostgresPlusDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        generate_statistics: true
+        dialect: org.hibernate.dialect.PostgresPlusDialect
+        order_inserts: true
+        order_updates: true
+        temp:
+          use_jdbc_metadata_defaults: false
+        jdbc:
+          batch_size: 30
+          lob:
+            non_contextual_creation: true
